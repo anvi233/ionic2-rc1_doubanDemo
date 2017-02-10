@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar color="dark">
+    <ion-title>
+      电影搜索<<豆瓣
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	<ion-list>
+		<ion-item>
+	    	<ion-input class="textc" type="text" [(ngModel)]="ngvalue" placeholder="再次输入搜索内容" (focusout)="doSearch()"></ion-input>
+		</ion-item>
+	</ion-list>
+	<ion-list>
+	  <ion-item *ngFor="let movie of movies" id={{movie.id}} (click)="gotoDetail(movie)">
+	    <ion-thumbnail item-left>
+	      <img src={{movie.src}}>
+	    </ion-thumbnail>
+	    <h2>{{movie.title}}</h2>
+    	<p color="gray">{{movie.original_title}}({{movie.year}})</p>
+    	<p color="gray">导演：{{movie.directors}}</p>
+	    <button clear item-right>View</button>
+	  </ion-item>
+	</ion-list>
+</ion-content>
